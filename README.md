@@ -1,14 +1,10 @@
-# Code belonging to Quantitative Characterization of Budding Yeast Polarization at the Mesoscale
-_M. M. Glazenburg, E. Geurken & L. Laan._
+# Code belonging to Diversification of budding yeast polarization dynamics after compensatory experimental evolution
+_M. M. Glazenburg & L. Laan._
 
-This repository contains the code underlying the publication _Quantitative Characterization of Budding Yeast Polarization at the Mesoscale_ (https://doi.org/10.1103/gp4c-y48t).
+## How to use - analyzing polarization events
+This code can be used to repeat the analyses described in the main manuscript, i.e. segmenting polarization events, separating spots and and extracting observables. This requires 3D live cell fluorescence imaging data, a segmentation mask and an annotation of polarization events as input.
 
-_AI disclaimer: generative AI was jused for the purpose of preparing the code for publication in a public repository, as well as for optimizing very specific functionalities. The majority of the code was conceived without AI assistance._
-
-## How to use
-This code can be used to repeat the analyses described in the main publication, i.e. segmenting polarization events and extracting observables. This requires 3D live cell fluorescence imaging data, a segmentation mask and an annotation of polarization events as input.
-
-Sample data can be retrieved from the corresponding data repository found at https://doi.org/10.4121/90dc93d5-445f-463d-854e-70f43607ab01.
+Sample data can be retrieved from our previous data repository found at https://doi.org/10.4121/90dc93d5-445f-463d-854e-70f43607ab01.
 
 This code should be used as follows.
 
@@ -22,11 +18,17 @@ Individual polarization events need to be extracted from the main field of view 
         3. `cell_info.txt` with annotation info containing the cell ID, starting and ending timepoint, and cell type (mother [m] or daughter [d])
     - This outputs:
         1. 3D timelapses of single cells/polarization events, bleaching corrected and cropped from the field of view
-2. Use `extract_properties_main.py ` to create .txt files containing all observables
-    - This takes as input:
+2. Use `extract_multispot_masks.py` to create .tif files for each polarization event in which each spot has a unique identifier
+   - This takes as input:
         1. A directory of segmented singe cells/polarization events as outputted by `crop_and_save_cells.py`
+   - This outputs:
+        1. 3D timelapse masks corresponding to each polarization event, in which spots identified as being separate are marked with a unique integer (background is 0), saved in a directory named `cluster_masks` inside the directory of the cells
+3. Use `extract_properties_main.py ` to create .txt files containing all observables
+    - This takes as input:
+        1. A directory of segmented single cells/polarization events as outputted by `crop_and_save_cells.py`
+        2. A directory of corresponding multispot masks as outputted by `extract_multispot_masks.py`, named `cluster_masks` and located inside the directory of the cells (if `use_masks` is set to `True`)
     - This outputs:
-        1. .txt files containing calculated observables
+        1. .txt files containing calculated observables for the 'winning'/final spot of each polarization event
 
 ### (2) Plot and analyse observables
 After obtaining the .txt files containing calculated observables, they can be plotted and statistically analysed using the scripts in the `analyse/property_comparisons` folder.
