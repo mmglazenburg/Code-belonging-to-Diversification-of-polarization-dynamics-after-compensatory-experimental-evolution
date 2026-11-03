@@ -37,7 +37,7 @@ After obtaining the .txt files containing calculated observables, they can be pl
 
 1. Use the other files to create the plots to compare observables.
     - These takes as input:
-        1. Directories in which the .txt files outputted by `extract_properties_main.py ` are stored
+       1. Directories in which the .txt files outputted by `extract_properties_main.py ` are stored
    - These output, depending on the script:
      1. `individual_properties_compared.py`: scatter + violin plots of individual polarization characteristics with statistical analysis (toggle the desired observable to plot by uncommenting)
      2. `compare_mean_intensities.py`: mean intensity traces + individual traces
@@ -45,6 +45,11 @@ After obtaining the .txt files containing calculated observables, they can be pl
      4. `compare_variance.py`: fold changes of distribution variances for all observables compared to some reference
      5. `matrix_visualisation.py`: fold changes of distribution means for all observables compared to some reference
      6. `all_properties.py`: plots all properties + intensity traces of one condition together
+2. PCA analysis is found under `analyse/pca/pca.py`
+    - This takes as input:
+     1. Directories in which the .txt files outputted by `extract_properties_main.py ` are stored
+    - This outputs:
+      1. PCA analysis and plots as appearing in the manuscript
 
 ### (3) (optional) Assess the effect of thresholding
 Use the scripts in the subfolder `analyse/assess_thresholding` to see the effect of applying different thresholds and blurring to segmentation of the polarized signal.
