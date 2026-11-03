@@ -10,9 +10,11 @@ import math
 
 from lib.process_3d_cell import variance_threshold, normalize_image, mask_polarity
 from lib.utilities import align_traces, get_signal_start_end
+from lib.multispot_handling import determine_final_cluster_index
 
 
 def extract_all_properties(directory,
+                           use_cluster_masks=True,
                            threshold_stds=3,
                            plot_ind_traces=False):
     """
@@ -60,8 +62,16 @@ def extract_all_properties(directory,
         image = normalize_image(image_raw)
 
         # SEGMENTATION
-        threshold = variance_threshold(image, std_no=threshold_stds)
-        image_masked = mask_polarity(image, threshold)
+        ## MASK IMAGE BASED ON DOMINANT CLUSTER MASK, USE THRESHOLDING METHOD IF NONE
+        if use_cluster_masks:
+            mask_path = directory + 'cluster_masks/' + file.split('.')[0] + '_cluster_mask.tif'
+            cluster_mask = skio.imread(mask_path, plugin="tifffile")
+            final_cluster_index = determine_final_cluster_index(image, cluster_mask)
+            mask = cluster_mask == final_cluster_index
+            image_masked = image * mask
+        else:
+            threshold = variance_threshold(image, std_no=threshold_stds)
+            image_masked = mask_polarity(image, threshold)
 
         # INTENSITY TRACE
         intensity = np.sum(image_masked, axis=(1, 2, 3))

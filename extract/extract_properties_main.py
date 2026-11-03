@@ -25,6 +25,8 @@ directory = "C:/Data/cropped_cells/"
 scale = 63.69 / 512   # µm per pixel
 frame_time = 20       # seconds per frame
 
+use_masks = True       # whether to use cluster masks for spot separation; assumes extract_multispot_masks.py has been run
+
 # =========================
 # RUN PROPERTY EXTRACTION
 # =========================
@@ -33,5 +35,6 @@ print('Working on directory ' + directory)
 
 extract_all_properties(
     directory,
+    use_cluster_masks=use_masks,
     plot_ind_traces=True
 )
