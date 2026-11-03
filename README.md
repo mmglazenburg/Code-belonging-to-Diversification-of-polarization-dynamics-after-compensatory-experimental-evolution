@@ -47,7 +47,7 @@ After obtaining the .txt files containing calculated observables, they can be pl
      6. `all_properties.py`: plots all properties + intensity traces of one condition together
 2. PCA analysis is found under `analyse/pca/pca.py`
     - This takes as input:
-     1. Directories in which the .txt files outputted by `extract_properties_main.py ` are stored
+      1. Directories in which the .txt files outputted by `extract_properties_main.py ` are stored
     - This outputs:
       1. PCA analysis and plots as appearing in the manuscript
 
