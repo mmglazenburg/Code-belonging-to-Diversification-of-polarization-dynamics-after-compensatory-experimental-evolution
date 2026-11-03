@@ -7,8 +7,6 @@ This repository contains the code underlying the manuscript _Diversification of 
 ## How to use
 This code can be used to repeat the analyses described in the main manuscript, i.e. segmenting polarization events and extracting observables. This requires 3D live cell fluorescence imaging data, a segmentation mask and an annotation of polarization events as input.
 
-Sample data can be retrieved from the corresponding data repository found at https://doi.org/10.4121/90dc93d5-445f-463d-854e-70f43607ab01.
-
 This code should be used as follows.
 
 ### (1) Extract events and observables
