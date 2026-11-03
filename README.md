@@ -1,12 +1,11 @@
-# Code belonging to Quantitative Characterization of Budding Yeast Polarization at the Mesoscale
-_M. M. Glazenburg, E. Geurken & L. Laan._
+# Code belonging to Diversification of budding yeast polarization dynamics after compensatory experimental evolution
+_M. M. Glazenburg & L. Laan._
 
-This repository contains the code underlying the publication _Quantitative Characterization of Budding Yeast Polarization at the Mesoscale_ (https://doi.org/10.1103/gp4c-y48t).
+This repository contains the code underlying the manuscript _Diversification of budding yeast polarization dynamics after compensatory experimental evolution_.
 
-_AI disclaimer: generative AI was jused for the purpose of preparing the code for publication in a public repository, as well as for optimizing very specific functionalities. The majority of the code was conceived without AI assistance._
 
 ## How to use
-This code can be used to repeat the analyses described in the main publication, i.e. segmenting polarization events and extracting observables. This requires 3D live cell fluorescence imaging data, a segmentation mask and an annotation of polarization events as input.
+This code can be used to repeat the analyses described in the main manuscript, i.e. segmenting polarization events and extracting observables. This requires 3D live cell fluorescence imaging data, a segmentation mask and an annotation of polarization events as input.
 
 Sample data can be retrieved from the corresponding data repository found at https://doi.org/10.4121/90dc93d5-445f-463d-854e-70f43607ab01.
 
