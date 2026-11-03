@@ -1,6 +1,8 @@
 # Code belonging to Diversification of budding yeast polarization dynamics after compensatory experimental evolution
 _M. M. Glazenburg & L. Laan._
 
+This code belongs to the analysis performed in the manuscript titled Diversification of budding yeast polarization dynamics after compensatory experimental evolution.
+
 ## How to use - analyzing polarization events
 This code can be used to repeat the analyses described in the main manuscript, i.e. segmenting polarization events, separating spots and and extracting observables. This requires 3D live cell fluorescence imaging data, a segmentation mask and an annotation of polarization events as input.
 
